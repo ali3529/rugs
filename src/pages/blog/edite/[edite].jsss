@@ -1,0 +1,169 @@
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+
+function edite() {
+    const router = useRouter()
+    // const { edite } = router.query
+    const [id, setid] = useState(router.query.edite)
+    const [title, settitle] = useState('')
+    const [discription, setdiscription] = useState('')
+    const [imgurl, setimgurl] = useState('')
+    const [seotitle, setseotitle] = useState('')
+    const [seoDiscrip, setseoDiscrip] = useState('')
+    const [keyword, setkeyword] = useState('')
+    const [date, setDate] = useState(Date.now())
+    const [loading, setloading] = useState(false)
+    console.log("{sacasc}",id);
+
+
+      axios.get('/api/blogapi/'+router.query.edite) .then(res => setlastblog(res.data.data)).catch(err=>console.log(err))
+  
+
+    const editeeBlog = () => {
+
+        const formdata = new FormData();
+
+        formdata.append("file", imgurl)
+
+        formdata.append('data', JSON.stringify({ title, discription, seotitle, seoDiscrip, keyword, date }))
+        setloading(true)
+        axios.post('/api/blogapi', formdata).then(res => setloading(false)).catch(err => setloading(false));
+
+    }
+
+    return (
+        <div>
+            <div className="mx-auto max-w-7xl body-font relative">
+                <h1 className="text-4xl mx-4">create blog</h1>
+
+                <div>
+                    <div className='grid grid-cols-2 space-x-4'>
+
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                title
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full rounded border  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => settitle(e.target.value)} value={title}
+                            />
+                        </div>
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                seo title
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full rounded border  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => setseotitle(e.target.value)} value={seotitle}
+                            />
+                        </div>
+
+
+                    </div>
+                    <div className='grid grid-cols-1 space-x-4'>
+
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                title
+                            </label>
+                            <textarea
+                                type="text"
+                                id="name"
+                                name="disc"
+                                rows={10}
+                                className="w-full rounded border 
+                              focus:border-indigo-500 focus:ring-2
+                               focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => setdiscription(e.target.value)} value={discription}
+                            />
+                        </div>
+
+                    </div>
+                    <div className='grid grid-cols-2 space-x-4'>
+
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                KeyWord
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full rounded border  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => setkeyword(e.target.value)} value={keyword}
+                            />
+                        </div>
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                seo description
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full rounded border  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => setseoDiscrip(e.target.value)} value={seoDiscrip}
+                            />
+                        </div>
+
+
+                    </div>
+
+                    <div className='grid grid-cols-2 space-x-4'>
+
+
+                        <div className="relative mb-4">
+                            <label
+                                htmlFor="name"
+                                className="leading-7 text-sm text-gray-400">
+                                img
+                            </label>
+                            <input
+                                type="file"
+                                id="file"
+                                name="file"
+                                className="w-full rounded border  focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                onChange={(e) => setimgurl(e.target.files[0])}
+                            />
+                        </div>
+
+
+                    </div>
+
+                    <div className='flex flex-row justify-center space-x-4'>
+                        <button className="text-white bg-indigo-500 border-0 py-2 px-6   focus:outline-none
+                 hover:bg-indigo-600 rounded text-lg "
+                            onClick={editeeBlog}
+                        >
+                            {
+                                loading ? "creating blog..." : "create blog"
+                            }
+
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    )
+}
+
+export default edite
