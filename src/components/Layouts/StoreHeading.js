@@ -11,9 +11,9 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
 let attribute = []
 const f = {
     pattern: 0,
-    pileheight: 0,
-    room: 0,
-    typeproduct: 0,
+    style: 0,
+    Room: 0,
+    rugtype: 0,
     size: 0,
     color: 0,
     name: 0
@@ -31,7 +31,7 @@ function StoreHeading({ filters, limitHandle }) {
             let a = [];
             res.data.data.map(attr => {
 
-                if (attr.id == 24 || attr.id == 23 || attr.id == 28 || attr.id == 34 || attr.id == 11 || attr.id == 33 || attr.id == 35) {
+                if (attr.id == 38 || attr.id == 29 || attr.id == 48 || attr.id == 49 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
                     console.log("[dsjvdsklv]", attr);
                     a.push(attr)
                 }
@@ -47,12 +47,12 @@ function StoreHeading({ filters, limitHandle }) {
 
         if (router.isReady) {
             router.query.pattern != undefined ? handleFlter('pattern', router.query.pattern, router.query.lable) :
-                router.query.room != undefined ? handleFlter('room', router.query.room, router.query.lable) :
-                    router.query.typeproduct != undefined ? handleFlter('typeproduct', router.query.typeproduct, router.query.lable) :
+                router.query.Room != undefined ? handleFlter('Room', router.query.Room, router.query.lable) :
+                    router.query.rugtype != undefined ? handleFlter('rugtype', router.query.rugtype, router.query.lable) :
                         router.query.size != undefined ? handleFlter('size', router.query.size, router.query.lable) :
                             router.query.color != undefined ? handleFlter('color', router.query.color, router.query.lable) :
                                 router.query.name != undefined ? handleFlter('name', router.query.name, router.query.name) :
-                                    router.query.pileheight != undefined ? handleFlter('pileheight', router.query.pileheight, router.query.lable) : handleFlter('', '', '');
+                                    router.query.style != undefined ? handleFlter('style', router.query.style, router.query.lable) : handleFlter('', '', '');
         }
 
     }, [router.query]);
@@ -74,9 +74,9 @@ function StoreHeading({ filters, limitHandle }) {
             attribute.push({ filter: fil, code: code, id: id, label: label });
 
         if (code == 'pattern') f.pattern = id
-        else if (code == 'pileheight') f.pileheight = id
-        else if (code == 'room') f.room = id
-        else if (code == 'typeproduct') f.typeproduct = id
+        else if (code == 'style') f.style = id
+        else if (code == 'Room') f.Room = id
+        else if (code == 'rugtype') f.rugtype = id
         else if (code == 'size') f.size = id
         else if (code == 'color') f.color = id
         else if (code == 'name') f.name = id
@@ -88,9 +88,9 @@ function StoreHeading({ filters, limitHandle }) {
 
     const clearFilterNotUsed = (filter) => {
         if (filter.pattern == 0) delete filter.pattern;
-        if (filter.pileheight == 0) delete filter.pileheight;
-        if (filter.room == 0) delete filter.room;
-        if (filter.typeproduct == 0) delete filter.typeproduct;
+        if (filter.style == 0) delete filter.style;
+        if (filter.Room == 0) delete filter.Room;
+        if (filter.rugtype == 0) delete filter.rugtype;
         if (filter.size == 0) delete filter.size;
         if (filter.color == 0) delete filter.color;
         if (filter.name == 0) delete filter.name;
@@ -108,9 +108,9 @@ function StoreHeading({ filters, limitHandle }) {
             undefined, { shallow: true }
         )
         if (filter.code == 'pattern') f.pattern = 0
-        else if (filter.code == 'pileheight') f.pileheight = 0
-        else if (filter.code == 'room') f.room = 0
-        else if (filter.code == 'typeproduct') f.typeproduct = 0
+        else if (filter.code == 'style') f.style = 0
+        else if (filter.code == 'Room') f.Room = 0
+        else if (filter.code == 'rugtype') f.rugtype = 0
         else if (filter.code == 'size') f.size = 0
         else if (filter.code == 'color') f.color = 0
         else if (filter.code == 'name') f.name = 0

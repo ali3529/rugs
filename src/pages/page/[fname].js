@@ -29,24 +29,24 @@ function faq() {
     //   }
     //   `;
 
-    // const setQ = () => fname == "faq" ? 12 : fname == "privacy-policy" ? 11 :
-    //     fname == "about-vintage-rugs" ? 13 :
-    //         fname == "shipping-policy" ? 10 :
-    //             fname == "why-buy-from-magic-rugs" ? 15 :
-    //                 fname == "rewards" ? 14 :
-    //                     fname == "trade-program" ? 17 :
-    //                         fname == "buyers-retailers-program" ? 18 : 
-    //                         fname == "cutomer-service" ? 7 : ''  
+    const setQ = () => fname == "faq" ? 12 : fname == "privacy-policy" ? 11 :
+        fname == "about-vintage-rugs" ? 13 :
+            fname == "shipping-policy" ? 10 :
+                fname == "why-buy-from-magic-rugs" ? 16 :
+                    fname == "rewards" ? 14 :
+                        fname == "trade-program" ? 17 :
+                            fname == "buyers-retailers-program" ? 18 : 
+                            fname == "cutomer-service" ? 7 : ''  
                             
                             
-                            const setQ = () => fname == "faq" ? '62c971778b7536772a213c51' : fname == "privacy-policy" ? '62c972458b7536772a213c6d' :
-        fname == "about-vintage-rugs" ? '62c971ac8b7536772a213c59' :
-            fname == "shipping-policy" ? '62c9718b8b7536772a213c55' :
-                fname == "why-buy-from-magic-rugs" ? '62c9722a8b7536772a213c69' :
-                    fname == "rewards" ? '62c971cc8b7536772a213c5d' :
-                        fname == "trade-program" ? '62c971ec8b7536772a213c61' :
-                            fname == "buyers-retailers-program" ? '62c971ff8b7536772a213c65' : 
-                            fname == "cutomer-service" ? 7 : ''
+        //                     const setQ = () => fname == "faq" ? '62c971778b7536772a213c51' : fname == "privacy-policy" ? '62c972458b7536772a213c6d' :
+        // fname == "about-vintage-rugs" ? '62c971ac8b7536772a213c59' :
+        //     fname == "shipping-policy" ? '62c9718b8b7536772a213c55' :
+        //         fname == "why-buy-from-magic-rugs" ? '62c9722a8b7536772a213c69' :
+        //             fname == "rewards" ? '62c971cc8b7536772a213c5d' :
+        //                 fname == "trade-program" ? '62c971ec8b7536772a213c61' :
+        //                     fname == "buyers-retailers-program" ? '62c971ff8b7536772a213c65' : 
+        //                     fname == "cutomer-service" ? 7 : ''
     // fname == "about-us" ? 1 : 
 
 
@@ -82,8 +82,8 @@ function faq() {
     useEffect(() => {
         if (fname != undefined) {
             setloading(true)
-            axios.get('/api/blogapi/' +setQ() ).then(res => {
-                setdata(res.data.data)
+            axios.post('https://back.rug100.com/api/getPages',{id:setQ()}).then(res => {
+                setdata(res.data)
                 setloading(false)
                 console.log("sevdsvsd", res.data)
             }).catch((e) => console.log("sevdsvsd_err", e))
@@ -96,9 +96,9 @@ function faq() {
             {
                 loading ? <p>Loading...</p>
                     : <div className='w-full'>
-                        <h1 className='text-lg font-bold'>{data?.title}</h1>
+                        <h1 className='text-lg font-bold'>{data?.page_title}</h1>
                         <span className='mt-8 w-full'>
-                            {ReactHtmlParser(data?.discription)}
+                            {ReactHtmlParser(data?.html_content)}
                         </span>
 
                     </div>

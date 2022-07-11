@@ -43,7 +43,7 @@ function LastBlog() {
                                 <div className=" ">
                                     <img
                                         className="w-full rounded-lg"
-                                        src={process.env.app_url + item.imgUrl}
+                                        src={process.env.imgPath+'/'  + item.imgUrl}
                                         alt={item.seotitle}
                                     />
                                     <div className="flex flex-col items-center justify-center px-1">

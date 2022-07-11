@@ -22,7 +22,7 @@ function ShopByRoom() {
 
     useEffect(() => { }, [status, errors])
 
-    const room = useQuery('attr_room', async () => getAttributeByIdUrl(33), {
+    const room = useQuery('attr_room', async () => getAttributeByIdUrl(49), {
         onSuccess: (res) => {
             setMainColorAttribute(res.data)
             // console.log("dsvdv", res.data)

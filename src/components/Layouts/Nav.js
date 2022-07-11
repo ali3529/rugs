@@ -186,14 +186,14 @@ function Nav() {
             setStatus,
             setLoading,
             setAttribute: setStyleAttribute,
-            id: 29,
+            id: 48,
         })
         getAttributeById({
             setErrors,
             setStatus,
             setLoading,
             setAttribute: setPatternAttribute,
-            id: 35,
+            id: 38,
         })
         // getAttributeById({
         //     setErrors,

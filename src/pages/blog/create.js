@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import AuthContext from '@/context/AuthContext'
 import { Editor } from '@tinymce/tinymce-react';
+import useAxiosPublic from "@/hooks/AxiosConfigPublic"
+
 function createBlog() {
     const [title, settitle] = useState('')
     const [discription, setdiscription] = useState('')
@@ -17,10 +19,11 @@ function createBlog() {
     const [categoryId, setcategoryId] = useState('')
     const router = useRouter()
     const [status, setstatus] = useState('')
-
+    const { axiosPublic } = useAxiosPublic()
     const authContext = useContext(AuthContext)
     const { isAuth, userData, authDispatch, isLoading } = authContext;
     const editorRef = useRef(null);
+    const [uploadStatus, setuploadStatus] = useState('')
 
     const log = () => {
         let des=''
@@ -33,17 +36,24 @@ function createBlog() {
     };
 
 
-    const createBlog = () => {
+    const createBlog = async() => {
 
+        setuploadStatus('uploding Image ...')
         const formdata = new FormData();
 
-        formdata.append("file", imgurl)
+        formdata.append("img[]", imgurl)
+        console.log("dsvdsvdsvdsv",formdata);
+      const response=await axiosPublic.post('/save_blog_image',formdata);
+setuploadStatus('')
 
+        
         log()
-        formdata.append('data', JSON.stringify({ title, discription:log(), seotitle, seoDiscrip, keyword, date, category, categoryId }))
+        // formdata.append('data', JSON.stringify({ title, discription:log(), seotitle, seoDiscrip, keyword, date, category, categoryId,image:data.image }))
+       const data= { title, discription:log(), seotitle, seoDiscrip, keyword, date, category, categoryId,imgUrl:response.data.image }
+
         setloading(true)
     
-        axios.post('/api/blogapi', formdata).then(res => {
+        axios.post('/api/blogapi',data ).then(res => {
             setloading(false)
             toastMassage('Blog Creaate successfull',1)
             setTimeout(() => {
@@ -243,6 +253,7 @@ function createBlog() {
 
 
                                     </button>
+                                    <span>{uploadStatus!=''?uploadStatus:''}</span>
                                 </div>
                             </div>
                         </div>

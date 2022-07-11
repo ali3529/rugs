@@ -94,7 +94,7 @@ function manage() {
                                 <div className='flex flex-col sm:flex-row space-x-5 '>
                                     <img
                                         className="w-44 h-44 rounded-lg"
-                                        src={process.env.app_url + item.imgUrl}
+                                        src={process.env.imgPath+'/' + item.imgUrl}
                                         // src={item.img}
                                         alt={item.seotitle}
                                     />

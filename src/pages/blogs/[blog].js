@@ -42,7 +42,7 @@ function blogs() {
 
               <span className='border-b border-gray-500 mb-8'></span>
 
-              <img src={process.env.app_url + lastblog.imgUrl} alt={lastblog.seotitle} />
+              <img src={process.env.imgPath+'/'  + lastblog.imgUrl} alt={lastblog.seotitle} />
 
               <div className='flex flex-col justify-center mt-8 wysiwyg'>
                 {ReactHtmlParser(lastblog.discription)}
