@@ -32,10 +32,10 @@ function faq() {
     const setQ = () => fname == "faq" ? 12 : fname == "privacy-policy" ? 11 :
         fname == "about-vintage-rugs" ? 13 :
             fname == "shipping-policy" ? 10 :
-                fname == "why-buy-from-magic-rugs" ? 16 :
+                fname == "why-buy-from-magic-rugs" ? 17 :
                     fname == "rewards" ? 14 :
-                        fname == "trade-program" ? 17 :
-                            fname == "buyers-retailers-program" ? 18 : 
+                        fname == "trade-program" ? 15 :
+                            fname == "buyers-retailers-program" ? 16 : 
                             fname == "cutomer-service" ? 7 : ''  
                             
                             
