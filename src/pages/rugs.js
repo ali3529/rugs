@@ -14,7 +14,7 @@ function IndexPage() {
     const [loading, setLoading] = useState(true)
 
     const [pages, setpages] = useState(0)
-
+    const [hasMore, sethasMore] = useState(false)
     const [limit, setlimit] = useState(9)
 
     const getRugs = () => {
@@ -22,11 +22,13 @@ function IndexPage() {
             res => {
                 setLoading(false)
                 if (res.data.data.length == 0) {
-                    setPaginate(res.data.data)
+                    // setPaginate(res.data.data)
+                    sethasMore(false)
                 } else {
                     setPaginate(prev => [...prev, res.data.data])
+                    sethasMore(true)
                 }
-
+                console.log("dvdsmvdsv",res.data.data);
                 setpages(res.data.meta.last_page)
             }
         )
@@ -123,7 +125,8 @@ function IndexPage() {
                     <InfiniteScroll
                         pageStart={page}
                         loadMore={nextPage}
-                        hasMore={true || false}
+                        // hasMore={true || false}
+                        hasMore={hasMore}
                         loader={<div className='flex flex-col'>
 
                             <div className='grid sm:grid-cols-3 grid-cols-1 space-x-4 m-2'>

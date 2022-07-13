@@ -205,7 +205,7 @@ function ProductCard({ product, index }) {
                                 />
                             ))}
                     </div>
-
+found
                     <div className="relative flex items-center justify-center md:items-start flex-col">
                         <div className="text-gray-900 text-lg md:text-xl font-semibold text-center my-2 leading-5 md:text-left">
                             {title}

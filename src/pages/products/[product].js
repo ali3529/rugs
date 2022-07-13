@@ -85,7 +85,7 @@ const Product = () => {
             )}
             {!loading && !productData && (
                 <b className="flex justify-center items-center w-full m-10 text-center">
-                    Not find
+                    Not found
                 </b>
             )}
         </div>

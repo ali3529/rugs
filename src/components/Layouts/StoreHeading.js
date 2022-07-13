@@ -31,7 +31,7 @@ function StoreHeading({ filters, limitHandle }) {
             let a = [];
             res.data.data.map(attr => {
 
-                if (attr.id == 38 || attr.id == 29 || attr.id == 48 || attr.id == 49 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
+                if (attr.id == 50 || attr.id == 51 || attr.id == 52 || attr.id == 53 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
                     console.log("[dsjvdsklv]", attr);
                     a.push(attr)
                 }
@@ -160,18 +160,18 @@ function StoreHeading({ filters, limitHandle }) {
                 {/* {attr.isLoading ? <div className='flex flex-row justify-center mt-4  '> */}
                 {attr.isLoading ? <div>
                     <div className='sm:grid  lg:grid-cols-7 md:grid-cols-4 justify-center mt-4 hidden '>
-                    {Array.from({ length: 7 }, (_, i) =>
-                        <div class="w-40 h-11 rounded-lg border-2 flex justify-center px-5 items-center animate-pulse ">
-                            <span class="w-14 bg-gray-300 h-2 rounded-md ">
-                            </span>
-                        </div>
-                    )}
-                </div>
-                <div class="w-80 h-11 px-2 rounded-lg border-2 m-5  justify-center  flex sm:hidden  items-center animate-pulse ">
-                            <span class="w-24 bg-gray-300 h-2 rounded-md ">
-                            </span>
-                        </div>
+                        {Array.from({ length: 7 }, (_, i) =>
+                            <div class="w-40 h-11 rounded-lg border-2 flex justify-center px-5 items-center animate-pulse ">
+                                <span class="w-14 bg-gray-300 h-2 rounded-md ">
+                                </span>
+                            </div>
+                        )}
                     </div>
+                    <div class="w-80 h-11 px-2 rounded-lg border-2 m-5  justify-center  flex sm:hidden  items-center animate-pulse ">
+                        <span class="w-24 bg-gray-300 h-2 rounded-md ">
+                        </span>
+                    </div>
+                </div>
                     : <div>
                         <div className='mt-4  sm:grid grid-cols-2 lg:grid-cols-7 md:grid-cols-4 justify-between hidden '>
                             {
@@ -208,7 +208,9 @@ function StoreHeading({ filters, limitHandle }) {
                                                 leave="transition ease-in duration-75"
                                                 leaveFrom="transform opacity-100 scale-100"
                                                 leaveTo="transform opacity-0 scale-95"
-                                                className='z-40 absolute bg-white rounded-xl grid grid-cols-2 w-80 '
+
+                                                // className='z-40 absolute bg-white rounded-xl grid grid-cols-2 w-80 '
+                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112 ' : 'grid-cols-2  w-80 '} `}
                                             >
                                                 <Menu.Items className="absolute  right-0 mt-2  origin-top-right divide-y
                                    divide-gray-100 rounded-md bg-white shadow-lg ring-1
@@ -388,8 +390,8 @@ function StoreHeading({ filters, limitHandle }) {
                 <div className='mt-6 flex flex-row'>
                     {
                         attribute.map((filter, index) => <div className='border-2 border-gray-600 rounded-lg p-2 mx-2 flex flex-row'>
-                            {/* {filter.filter.replace('=', ' : ')} */}
-                            {filter.code + '=' + filter.label}
+
+                            {filter.code == 'rugtype' ? 'type' + '=' + filter.label : filter.code + '=' + filter.label}
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
                                 onClick={(e) => removAttr(index, filter)}>
