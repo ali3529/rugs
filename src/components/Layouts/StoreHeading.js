@@ -15,7 +15,7 @@ const f = {
     room: 0,
     rugtype: 0,
     size: 0,
-    color: 0,
+    colorname: 0,
     name: 0
 }
 function StoreHeading({ filters, limitHandle }) {
@@ -31,7 +31,7 @@ function StoreHeading({ filters, limitHandle }) {
             let a = [];
             res.data.data.map(attr => {
 
-                if (attr.id == 50 || attr.id == 51 || attr.id == 52 || attr.id == 53 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
+                if (attr.id == 50 || attr.id == 51 || attr.id == 52 || attr.id == 53 || attr.id == 11 || attr.id == 24 || attr.id == 55) {
                     console.log("[dsjvdsklv]", attr);
                     a.push(attr)
                 }
@@ -50,7 +50,7 @@ function StoreHeading({ filters, limitHandle }) {
                 router.query.room != undefined ? handleFlter('room', router.query.room, router.query.lable) :
                     router.query.rugtype != undefined ? handleFlter('rugtype', router.query.rugtype, router.query.lable) :
                         router.query.size != undefined ? handleFlter('size', router.query.size, router.query.lable) :
-                            router.query.color != undefined ? handleFlter('color', router.query.color, router.query.lable) :
+                            router.query.colorname != undefined ? handleFlter('colorname', router.query.colorname, router.query.lable) :
                                 router.query.name != undefined ? handleFlter('name', router.query.name, router.query.name) :
                                     router.query.style != undefined ? handleFlter('style', router.query.style, router.query.lable) : handleFlter('', '', '');
         }
@@ -78,7 +78,7 @@ function StoreHeading({ filters, limitHandle }) {
         else if (code == 'room') f.room = id
         else if (code == 'rugtype') f.rugtype = id
         else if (code == 'size') f.size = id
-        else if (code == 'color') f.color = id
+        else if (code == 'colorname') f.colorname = id
         else if (code == 'name') f.name = id
 
 
@@ -92,7 +92,7 @@ function StoreHeading({ filters, limitHandle }) {
         if (filter.room == 0) delete filter.room;
         if (filter.rugtype == 0) delete filter.rugtype;
         if (filter.size == 0) delete filter.size;
-        if (filter.color == 0) delete filter.color;
+        if (filter.colorname == 0) delete filter.colorname;
         if (filter.name == 0) delete filter.name;
 
         return filter;
@@ -112,7 +112,7 @@ function StoreHeading({ filters, limitHandle }) {
         else if (filter.code == 'room') f.room = 0
         else if (filter.code == 'rugtype') f.rugtype = 0
         else if (filter.code == 'size') f.size = 0
-        else if (filter.code == 'color') f.color = 0
+        else if (filter.code == 'colorname') f.colorname = 0
         else if (filter.code == 'name') f.name = 0
 
 
@@ -188,7 +188,7 @@ function StoreHeading({ filters, limitHandle }) {
                                                     onMouseEnter={() => sethover({ hover: true, id: attr.id })}
                                                     onMouseLeave={() => sethover({ hover: false })}
                                                 >
-                                                    {attr.name == 'main_color' ? 'color' : attr.code == 'price_per_unit' ? 'price' : attr.name}
+                                                    {attr.name == 'Color Name' ? 'color' : attr.code == 'price_per_unit' ? 'price' : attr.name}
                                                     <ChevronDownIcon
                                                         className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
                                                         aria-hidden="true"
