@@ -21,7 +21,7 @@ function ShopByStyle() {
     // }, [])
 
     useEffect(() => { }, [status, errors])
-    const style = useQuery('attr_style', async () => getAttributeByIdUrl(48), {
+    const style = useQuery('attr_style', async () => getAttributeByIdUrl(52), {
         onSuccess: (res) => {
             setMainColorAttribute(res.data)
             // console.log("dsvdv", res.data)

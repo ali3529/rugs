@@ -12,7 +12,7 @@ let attribute = []
 const f = {
     pattern: 0,
     style: 0,
-    Room: 0,
+    room: 0,
     rugtype: 0,
     size: 0,
     color: 0,
@@ -47,7 +47,7 @@ function StoreHeading({ filters, limitHandle }) {
 
         if (router.isReady) {
             router.query.pattern != undefined ? handleFlter('pattern', router.query.pattern, router.query.lable) :
-                router.query.Room != undefined ? handleFlter('Room', router.query.Room, router.query.lable) :
+                router.query.room != undefined ? handleFlter('room', router.query.room, router.query.lable) :
                     router.query.rugtype != undefined ? handleFlter('rugtype', router.query.rugtype, router.query.lable) :
                         router.query.size != undefined ? handleFlter('size', router.query.size, router.query.lable) :
                             router.query.color != undefined ? handleFlter('color', router.query.color, router.query.lable) :
@@ -75,7 +75,7 @@ function StoreHeading({ filters, limitHandle }) {
 
         if (code == 'pattern') f.pattern = id
         else if (code == 'style') f.style = id
-        else if (code == 'Room') f.Room = id
+        else if (code == 'room') f.room = id
         else if (code == 'rugtype') f.rugtype = id
         else if (code == 'size') f.size = id
         else if (code == 'color') f.color = id
@@ -89,7 +89,7 @@ function StoreHeading({ filters, limitHandle }) {
     const clearFilterNotUsed = (filter) => {
         if (filter.pattern == 0) delete filter.pattern;
         if (filter.style == 0) delete filter.style;
-        if (filter.Room == 0) delete filter.Room;
+        if (filter.room == 0) delete filter.room;
         if (filter.rugtype == 0) delete filter.rugtype;
         if (filter.size == 0) delete filter.size;
         if (filter.color == 0) delete filter.color;
@@ -109,7 +109,7 @@ function StoreHeading({ filters, limitHandle }) {
         )
         if (filter.code == 'pattern') f.pattern = 0
         else if (filter.code == 'style') f.style = 0
-        else if (filter.code == 'Room') f.Room = 0
+        else if (filter.code == 'room') f.room = 0
         else if (filter.code == 'rugtype') f.rugtype = 0
         else if (filter.code == 'size') f.size = 0
         else if (filter.code == 'color') f.color = 0

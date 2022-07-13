@@ -22,7 +22,7 @@ function ShopByRugsType() {
 
     useEffect(() => { }, [status, errors])
 
-    const type = useQuery('attr_type', async () => getAttributeByIdUrl(29), {
+    const type = useQuery('attr_type', async () => getAttributeByIdUrl(50), {
         onSuccess: (res) => {
             setMainColorAttribute(res.data)
             // console.log("dsvdv", res.data)
