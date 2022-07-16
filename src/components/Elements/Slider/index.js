@@ -177,21 +177,25 @@ const Slider = ({
                 width={width}
                 {...sliderWrapperProps}>
                 {/* {_slides.map((_slide, i) => ( */}
-                    <a href={slides[activeSlide].title}>
-                <Slide
-                    width={width}
-                    // key={_slide + i}
-                    content={slides[activeSlide].image_url}
-                    title={slides[activeSlide].title}
-                    description={slides[activeSlide].content}
-                    {...slideProps}
-                />
+                <a href={slides[activeSlide].title}>
+                    <Slide
+                        width={width}
+                        // key={_slide + i}
+                        content={slides[activeSlide].image_url}
+                        title={slides[activeSlide].title}
+                        description={slides[activeSlide].content}
+                        {...slideProps}
+                    />
                 </a>
                 {/* ))} */}
             </SliderContent>
 
-            <Arrow direction="left" handleClick={prevSlide} {...arrowProps} />
-            <Arrow direction="right" handleClick={nextSlide} {...arrowProps} />
+            <div className='hidden sm:flex'>
+                <Arrow direction="left" handleClick={prevSlide} {...arrowProps} />
+            </div>
+            <div className='hidden sm:flex'>
+                <Arrow direction="right" handleClick={nextSlide} {...arrowProps} />
+            </div>
             {false && slideInterval && (
                 <>
                     <Arrow
@@ -208,8 +212,9 @@ const Slider = ({
                     />
                 </>
             )}
-
+ <div className='hidden sm:flex'>
             <Dots slides={slides} activeSlide={activeSlide} {...dotsProps} />
+            </div>
         </Element>
     )
 }

@@ -38,8 +38,7 @@ function ShopByColor() {
                      RUGS BY COLOR
                 </h2>
                 <p className="font-thin text-gray-700">
-                    Whatever your décor and palette, we have rugs that complete
-                    the picture.
+                Find the perfect matching rug by browsing in the color section. The only limit is your imagination. 
                 </p>
             </div>
             <ul className="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3 flex-row flex-wrap w-full">

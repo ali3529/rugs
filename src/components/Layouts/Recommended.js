@@ -34,7 +34,7 @@ function Recommended() {
                     New Arrivals
                 </h2>
                 <p className="font-thin text-gray-700">
-                    Check out these styles we think you'll love!
+                Always updated with the latest trends. These new additions to the catalog will definitely catch your eye
                 </p>
             </div>
             <HorizantalSlider>

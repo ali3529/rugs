@@ -73,7 +73,7 @@ function ShopBySize() {
                     Shop Rugs by Size
                 </h2>
                 <p className="font-thin text-gray-700">
-                    Choose User Rugs By Size.
+                Choose the perfect rug and make sure it fits your living spaces.
                 </p>
             </div>
             <ul className="grid md:grid-cols-7 sm:grid-cols-3 grid-cols-2 w-full">

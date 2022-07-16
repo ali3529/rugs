@@ -36,7 +36,7 @@ function ShopByRugsType() {
                 RUGS BY TYPE
                 </h2>
                 <p className="font-thin text-gray-700">
-                    shop your rug whit type you want
+                Browse through the different types of rugs we offer and fall in love with your rug.
                 </p>
             </div>
             <ul className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 flex-row flex-wrap w-full">

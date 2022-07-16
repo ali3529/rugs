@@ -36,10 +36,10 @@ function MainSlider() {
 
     console.log(mainSlides);
     return (
-        <div className="my-2">
+        <div className="my-2 mb-32 sm:mb-0" >
             {firstSlides && secondSlides && sliders && (
-                <div className="lg:flex lg:mt-10">
-                    <div className="lg:w-3/5 w-full sm:h-120 h-60 rounded-2xl border-white border-2  mx-2">
+                <div className=" lg:flex lg:mt-10 space-y-6 sm:space-y-0">
+                    <div className="lg:w-3/5 w-full sm:h-120  rounded-2xl border-white border-2  mx-2">
                       
                             <Slider
                                 slides={sliders}
@@ -50,17 +50,14 @@ function MainSlider() {
                         />
 
                     </div>
-                    <div className="lg:w-2/5 w-full lg:my-0 my-4 lg:h-120 md:h-60 h-40 flex flex-col  mx-2 space-y-2 mb-80 md:mb-64 sm:mb-0">
+                    <div className="lg:w-2/5 w-full lg:my-0 my-4 lg:h-120 md:h-60 h-40 flex flex-col  mx-2 space-y-2 mb-80 md:mb-64 sm:mb-0 space-y-6 sm:space-y-0">
                         <div className="relative w-full lg:mb-2 mr-2 rounded-2xl border-white border-2 ">
-                            <div className="absolute w-full h-full flex justify-center items-center rounded-md px-4">
-
-
-                            </div>
+                            
                             <a href={firstSlides.title}>
 
 
                                 <img
-                                    className="object-fill w-full h-56 md:hover:shadow-xl md:hover:mx-1 md:border-2 md:hover:border-gray-800
+                                    className="object-fill w-full sm:h-56 md:hover:shadow-xl md:hover:mx-1 md:border-2 md:hover:border-gray-800
                                 transform duration-300 cursor-pointer rounded-2xl"
                                     alt={firstSlides.title}
                                     src={firstSlides.image_url}
@@ -69,7 +66,7 @@ function MainSlider() {
                         </div>
 
                         <div className="relative w-full lg:mb-2 mr-2 rounded-2xl border-white border-2 ">
-                            <div className="absolute w-full h-full flex justify-center items-center rounded-md px-4">
+                            {/* <div className="absolute w-full h-full flex justify-center items-center rounded-md px-4"> */}
 
                                 {/* { secondSlides.title==''?"":
                                 <div className="rounded-lg bg-gray-901 w-full text-center py-2 px-3">
@@ -84,10 +81,10 @@ function MainSlider() {
                                         )}
                                     </p>
                                 </div>} */}
-                            </div>
+                            {/* </div> */}
                             <a href={secondSlides.title}>
                                 <img
-                                    className="object-fill w-full h-56 mt-2 md:hover:shadow-xl md:hover:mx-1 md:border-2 md:hover:border-gray-800
+                                    className="object-fill w-full  sm:h-56  mt-2 md:hover:shadow-xl md:hover:mx-1 md:border-2 md:hover:border-gray-800
                                 transform duration-300 cursor-pointer rounded-2xl"
                                     alt={secondSlides.title}
                                     src={secondSlides.image_url}

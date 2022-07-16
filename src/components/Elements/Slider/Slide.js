@@ -17,16 +17,16 @@ const Slide = ({ content, title, description, ...wrapperProps }) => (
             } */}
 
         </div>
-        <img
+        {/* <img
             className=" w-full h-full "
             src={content}
             {...wrapperProps}
-        />
-        {/* <img
+        /> */}
+        <img
             className=" w-full h-full sm:h-120 object-fill"
             src={content}
             {...wrapperProps}
-        /> */}
+        />
     </div>
 )
 

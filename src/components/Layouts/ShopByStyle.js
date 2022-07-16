@@ -35,7 +35,7 @@ function ShopByStyle() {
                 RUGS BY STYLE
                 </h2>
                 <p className="font-thin text-gray-700">
-                    shop your rug whit style you want
+                Choose among the great variety of styles to fit your home decor. 
                 </p>
             </div>
             <ul className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 flex-row flex-wrap w-full">

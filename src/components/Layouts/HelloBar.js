@@ -13,10 +13,10 @@ const HelloBar = () => {
                         (704) 763 1111
                     </a>
                 </span>
-                <span className="w-full flex self-center justify-center text-white ">
+                <span className="w-full flex justify-end text-white ">
                     Free Shipping + Free 30 Day Returns
                 </span>
-                <div className="w-full flex self-center justify-end text-white ">
+                {/* <div className="w-full flex self-center justify-end text-white ">
                     <a className="mx-2  hover:underline cursor-pointer hover:text-hovercolor-500" href="/order-status">
                         Order Status
                     </a>{' '}
@@ -30,41 +30,11 @@ const HelloBar = () => {
                     </a>{' '}
                     |{' '}
 
-                    <Popover>
-                        {({ close }) => (
-
-                            <>
-                                <Popover.Button>
-                                    <a className="mx-2 hover:text-hovercolor-500 hover:underline cursor-pointer">
-
-                                        Review
-                                    </a>
-                                </Popover.Button>
-                                <Transition
-
-                                    enter="transition ease-out duration-200"
-                                    enterFrom="opacity-0"
-                                    enterTo="opacity-100"
-                                    leave="transition ease-in duration-150"
-                                    leaveFrom="opacity-100"
-                                    leaveTo="opacity-0">
-                                    <Popover.Panel>
-                                        <div className='text-black'>
-
-                                            <AllProductReview closeModal={close} productId={1} />
-                                        </div>
-
-
-                                    </Popover.Panel>
-                                </Transition>
-
-                            </>
-                        )}
-                    </Popover>
+                  
 
 
 
-                </div>
+                </div> */}
             </div>
         </div>
     )

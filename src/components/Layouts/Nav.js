@@ -3,6 +3,7 @@ import { useCartContext } from '@/context/Store'
 import { useCoreApis } from '@/hooks/coreApis'
 import { classNames } from '@/utils/helpers'
 import { Dialog, Menu, Popover, Transition } from '@headlessui/react'
+import AllProductReview from '../AllProductReview'
 import {
     HeartIcon,
     MinusIcon,
@@ -52,6 +53,8 @@ function Nav() {
     const [styleAttribute, setStyleAttribute] = useState(null)
     const [patternAttribute, setPatternAttribute] = useState(null)
     const [persianAttrebute, setpersianAttrebute] = useState(null)
+
+    const [openMenu, setopenMenu] = useState(false)
     const [count, setcount] = useState(0)
     const { getWhishlistCount } = useProductsApis()
     const { getCartItemCount } = useCardApi()
@@ -267,17 +270,17 @@ function Nav() {
 
     function getNavigation(tag, array) {
         return navigation.map(item => {
-          
+
             if (item.id === tag) {
-                console.log("svdsvsdv",item);
+                console.log("svdsvsdv", item);
                 var sections = []
                 for (let index = 0; index < array.length; index++) {
                     const element = array[index]
-                    console.log("dsvdsvsdvdv",element);
+                    console.log("dsvdsvsdvdv", element);
                     sections.push({
                         id: element.id,
                         name: element.label,
-                        href: `/rugs?${tag}=${element.id }&lable=${element.label}`,
+                        href: `/rugs?${tag}=${element.id}&lable=${element.label}`,
                         // query:   {arrivais : item.id ,lable:item.label}
                         isLine: false,
                         image: element.swatch_value,
@@ -487,23 +490,162 @@ function Nav() {
                     </Dialog>
                 </Transition.Root>
 
+                <Transition.Root show={openMenu} as={Fragment}>
+                    <Dialog
+                        as="div"
+                        className="fixed inset-0 flex z-40 sm:hidden lg:flex"
+                        onClose={setopenMenu}>
+                        <Transition.Child
+                            as={Fragment}
+                            enter="transition ease-in-out duration-300 transform"
+                            enterFrom="-translate-x-full"
+                            enterTo="translate-x-0"
+                            leave="transition ease-in-out duration-300 transform"
+                            leaveFrom="translate-x-0"
+                            leaveTo="-translate-x-full">
+                            <div className="relative w-1/3  bg-white shadow-xl pb-12 flex flex-col ">
+                                <div className="px-4 pt-5 pb-2 flex space-x-10  border-b-2 mx-3 ">
+                                    <button
+                                        type="button"
+                                        className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                                        onClick={() => setopenMenu(false)}>
+                                        <span className="sr-only">
+                                            Close menu
+                                        </span>
+                                        <XIcon
+                                            className="h-6 w-6 border-2 border-indigo-400 rounded-md"
+                                            aria-hidden="true"
+                                        />
+
+
+                                    </button>
+                                    <a href="/" className='w-2/3'>
+
+                                        <ApplicationLogo />
+                                    </a>
+                                </div>
+
+                                {/* Links */}
+                                {/* WishList */}
+                                <div className="ml-4 flow-root lg:ml-6">
+                                    <Link href="/wishlist">
+
+                                        <a
+                                            href="#"
+                                            className="group -m-2 p-2 flex items-center space-x-3 my-2 ">
+
+                                            <HeartIcon
+                                                className="flex-shrink-0 h-6 w-6 text-indigo-400 hover:text-hovercolor-500 "
+                                                aria-hidden="true"
+                                            />
+                                            <span>Wish List</span>
+                                            <span className="ml-2 text-sm font-medium text-gray-700 hover:text-hovercolor-500">
+                                                {whishListCount}
+                                            </span>
+                                            <span className="sr-only">
+                                                items in wishList
+                                            </span>
+                                        </a>
+                                        {/* www */}
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Popover>
+                                        {({ close }) => (
+
+                                            <>
+                                                <Popover.Button>
+                                                    <div className='flex flex-row-reverse space-x-6 my-2 '>
+                                                        <a className="mx-2 hover:text-hovercolor-500 hover:underline cursor-pointer">
+
+                                                            Review
+                                                        </a>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                                        </svg>
+                                                    </div>
+                                                </Popover.Button>
+                                                <Transition
+
+                                                    enter="transition ease-out duration-200"
+                                                    enterFrom="opacity-0"
+                                                    enterTo="opacity-100"
+                                                    leave="transition ease-in duration-150"
+                                                    leaveFrom="opacity-100"
+                                                    leaveTo="opacity-0">
+                                                    <Popover.Panel>
+                                                        <div className='text-black'>
+
+                                                            <AllProductReview closeModal={close} productId={1} />
+                                                        </div>
+
+
+                                                    </Popover.Panel>
+                                                </Transition>
+
+                                            </>
+                                        )}
+                                    </Popover>
+                                </div>
+
+                                <nav className={`flex-col flex-grow pb-4 flex`}>
+
+                                    <div className='border-t-2 mx-5 px-2'>
+
+                                        <a className="mx-2  hover:underline cursor-pointer hover:text-hovercolor-500" href="/blogs" >
+                                            <h3
+
+                                                className=" text-xl text-gray-900">
+                                                Blog
+                                            </h3>
+                                        </a>
+                                        <a className="mx-2 hover:text-hovercolor-500 hover:underline cursor-pointer " href="/order-status">
+                                            <h3
+
+                                                className=" text-xl text-gray-900">
+                                                Order Status
+                                            </h3>
+                                        </a>
+                                        <a className="mx-2 hover:text-hovercolor-500 hover:underline cursor-pointer" href="/customer-service">
+                                            <h3
+
+                                                className=" text-xl text-gray-900">
+                                                Contact
+                                            </h3>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </Transition.Child>
+                    </Dialog>
+                </Transition.Root>
+
                 <header className="relative bg-white">
                     {/* Search bar on small screen */}
                     {openSearch && <SearchBar onSearchClick={onSearchClick} />}
                     <nav
                         aria-label="Top"
-                        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        className=" mx-auto px-8 sm:px-10 lg:px-12">
                         <div className="">
                             <div className="h-16 flex items-center">
-                                <NavigationButton setOpen={setOpen} />
+                                <NavigationButton bigScreen={false} setOpen={setOpen} />
 
+
+
+                                <div className='lg:mr-10  flex flex-row justify-center items-center  hover:text-hovercolor-500 '>
+
+
+                                    <NavigationButton bigScreen={true} setOpen={setopenMenu} />
+                                    <span className='hidden lg:block'>Menu</span>
+                                </div>
                                 {/* Logo */}
-                                <a href="/">
+                                <a className='w-full md:w-3/4 lg:w-1/4 ' href="/">
+
                                     <ApplicationLogo />
                                 </a>
 
                                 {/* Search box */}
-                                <div className="w-full mx-2 px-28 md:block hidden">
+                                <div className="w-full mx-2 px-16 md:block hidden">
                                     <Search />
 
                                 </div>
@@ -657,26 +799,7 @@ function Nav() {
                                         </Transition>
                                     </Menu>
 
-                                    {/* WishList */}
-                                    <div className="ml-4 flow-root lg:ml-6">
-                                        <Link href="/wishlist">
-                                            <a
-                                                href="#"
-                                                className="group -m-2 p-2 flex items-center ">
-                                                <HeartIcon
-                                                    className="flex-shrink-0 h-6 w-6 text-indigo-400 hover:text-hovercolor-500 "
-                                                    aria-hidden="true"
-                                                />
-                                                <span className="ml-2 text-sm font-medium text-gray-700 hover:text-hovercolor-500">
-                                                    {whishListCount}
-                                                </span>
-                                                <span className="sr-only">
-                                                    items in wishList
-                                                </span>
-                                            </a>
-                                            {/* www */}
-                                        </Link>
-                                    </div>
+
 
                                     {/* Cart */}
                                     <div className="ml-4 flow-root lg:ml-6">
@@ -764,7 +887,7 @@ function Nav() {
                                                                         <div className="">
                                                                             {category.sections.map(
                                                                                 section => (
-                                                                              
+
                                                                                     <div
                                                                                         className="mx-2 cursor-pointer"
                                                                                         key={
@@ -822,7 +945,7 @@ function Nav() {
                                                                                             )}
                                                                                         </div>
                                                                                     </div>
-                                                                              
+
                                                                                 ),
                                                                             )}
                                                                         </div>

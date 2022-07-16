@@ -37,7 +37,7 @@ function ShopByRoom() {
                     Rugs BY ROOM
                 </h2>
                 <p className="font-thin text-gray-700">
-                    shop your rug whit for your room
+                Find a rug that can complement your rooms perfectly.
                 </p>
             </div>
             <ul className="grid lg:grid-cols-4 md:grid-cols-4 grid-cols-2 flex-row flex-wrap w-full">
