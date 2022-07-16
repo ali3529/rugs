@@ -15,6 +15,7 @@ module.exports = {
                 120: '30rem',
                 150: '40rem',
                 160: '50rem',
+                180: '80rem',
             }),
             minHeight: theme => ({
                 80: '20rem',

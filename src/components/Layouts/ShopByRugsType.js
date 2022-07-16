@@ -43,7 +43,7 @@ function ShopByRugsType() {
                 {!loading &&
                 mainColorAttribute &&
                 mainColorAttribute.data.options.map((item, index) => {
-                    if (index < 12) {
+                    if (index < 8) {
                         return (
                             <li
                                 key={item.id}

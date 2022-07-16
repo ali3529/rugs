@@ -210,13 +210,13 @@ function StoreHeading({ filters, limitHandle }) {
                                                 leaveTo="transform opacity-0 scale-95"
 
                                                 // className='z-40 absolute bg-white rounded-xl grid grid-cols-2 w-80 '
-                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112 ' : 'grid-cols-2  w-80 '} `}
+                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112  ' :attr.code == 'rugtype'?'lg:grid-cols-5 grid-cols-6  w-160 -left-72': 'grid-cols-2  w-80 '} `}
                                             >
                                                 <Menu.Items className="absolute  right-0 mt-2  origin-top-right divide-y
                                    divide-gray-100 rounded-md bg-white shadow-lg ring-1
                                     ring-black ring-opacity-5 focus:outline-none">
                                                     {
-                                                        attr.code != 50 ? attr.options.map((op, inde) =>
+                                                        attr.code != 50 ? attr.options.map((op, inde) => 
 
                                                             <div className="px-1 w-36 py-1 rounded-lg md:hover:mx-1 md:border-2 md:border-white md:hover:border-gray-800
                                               transform duration-300 " onClick={(e) => {
@@ -229,8 +229,10 @@ function StoreHeading({ filters, limitHandle }) {
                                                                             className='bg-violet-500 text-whitetext-gray-900
                                                                    group flex w-full items-center rounded-md px-2 py-2 text-sm flex-wrap'
                                                                         >
-                                                                            {op.swatch_value != null ? <img className='w-12 h-11 m-2' loading='lazy' src={`${process.env.imgPath}/${op.swatch_value}`} /> : ''}
-                                                                            <p >  {op.label}</p>
+                                                                            
+                                                                            {attr.code =='style'?'':attr.code == 'rugtype'?'': op.swatch_value != null ? <img className='w-12 h-11 m-2' loading='lazy' src={`${process.env.imgPath}/${op.swatch_value}`} /> : ''}
+                                                                            {/* <p className={attr.code == 'rugtype' ?'w-5 h-8 m-4 flex flex-nowrap':''} >  {op.label}</p> */}
+                                                                            <p className={attr.code == 'rugtype' ?'w-5 h-4 m-4 flex flex-nowrap':''} >  {op.label}</p>
 
                                                                         </button>
                                                                     )}
