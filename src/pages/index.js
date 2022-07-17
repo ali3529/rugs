@@ -92,12 +92,12 @@ function IndexPage() {
                         </p>
 
                         <p className="my-3">
-                        You will find the variety of shapes and sizes we have collected so far in our online catalog is more than impressive; you will find we have gathered rectangular-shaped rugs, runner rugs, square rugs, and even round rugs. Furthermore, you will find all rug shapes possible, from the tiny 3 x 5 rugs to the palatial 9x12 rugs. No room, small or spacious shall remain without a rug to complement it.  
+                            You will find the variety of shapes and sizes we have collected so far in our online catalog is more than impressive; you will find we have gathered rectangular-shaped rugs, runner rugs, square rugs, and even round rugs. Furthermore, you will find all rug shapes possible, from the tiny 3 x 5 rugs to the palatial 9x12 rugs. No room, small or spacious shall remain without a rug to complement it.
                         </p>
 
                         <p className="my-3">
-                        We would like to help you complement your living space as exquisitely as they need to be complemented, and you can do this with the different rugs Magic Rugs has to offer. You will find a very detailed and well-divided category division, with which you will make sure to find especially what you are looking for.
-Welcome and good shopping!
+                            We would like to help you complement your living space as exquisitely as they need to be complemented, and you can do this with the different rugs Magic Rugs has to offer. You will find a very detailed and well-divided category division, with which you will make sure to find especially what you are looking for.
+                            Welcome and good shopping!
                         </p>
                     </div>
                 </div>

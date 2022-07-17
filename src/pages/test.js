@@ -1,17 +1,18 @@
 import React from 'react'
-
+import MultiRangeSlider from "@/components/multiRangeSlider/MultiRangeSlider";
 
 function test() {
 
 
+
     return (
-        <div className='flex flex-col'>
-            <span>
-            
-helow word
-             
-            </span>
-        </div>
+  <>
+    <MultiRangeSlider
+      min={0}
+      max={1000}
+      onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+    />
+  </>
     )
 }
 

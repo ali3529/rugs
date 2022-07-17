@@ -15,10 +15,10 @@ function IndexPage() {
 
     const [pages, setpages] = useState(0)
     const [hasMore, sethasMore] = useState(false)
-    const [limit, setlimit] = useState(4)
+    const [limit, setlimit] = useState(9)
 
     const getRugs = () => {
-        axiosPublic.get(`/products?page=${page}`, { params: attribute, limit }).then(
+        axiosPublic.get(`/products?page=${page}&limit=${limit}`, { params: attribute }).then(
             res => {
                 setLoading(false)
                 if (res.data.data.length == 0) {

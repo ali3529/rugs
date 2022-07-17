@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 import Select from 'react-select'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
+import RangeSlider from '../Elements/RangeSlider'
+
 
 let attribute = []
 const f = {
@@ -16,11 +18,17 @@ const f = {
     rugtype: 0,
     size: 0,
     color: 0,
-    name: 0
+    name: 0,
+    price: 0
 }
 function StoreHeading({ filters, limitHandle }) {
     const router = useRouter()
     const [hover, sethover] = useState({ hover: false, id: 0 })
+
+
+    const [minPrice, setminPrice] = useState('0')
+    const [maxPrice, setmaxPrice] = useState('20000')
+
 
     const { getAttrebutes } = useProductsApis()
 
@@ -52,7 +60,8 @@ function StoreHeading({ filters, limitHandle }) {
                         router.query.size != undefined ? handleFlter('size', router.query.size, router.query.lable) :
                             router.query.color != undefined ? handleFlter('color', router.query.color, router.query.lable) :
                                 router.query.name != undefined ? handleFlter('name', router.query.name, router.query.name) :
-                                    router.query.style != undefined ? handleFlter('style', router.query.style, router.query.lable) : handleFlter('', '', '');
+                                    router.query.price != undefined ? handleFlter('price', router.query.price, router.query.price) :
+                                        router.query.style != undefined ? handleFlter('style', router.query.style, router.query.lable) : handleFlter('', '', '');
         }
 
     }, [router.query]);
@@ -80,6 +89,7 @@ function StoreHeading({ filters, limitHandle }) {
         else if (code == 'size') f.size = id
         else if (code == 'color') f.color = id
         else if (code == 'name') f.name = id
+        else if (code == 'price') f.price = id
 
 
         filters(clearFilterNotUsed(f))
@@ -94,6 +104,7 @@ function StoreHeading({ filters, limitHandle }) {
         if (filter.size == 0) delete filter.size;
         if (filter.color == 0) delete filter.color;
         if (filter.name == 0) delete filter.name;
+        if (filter.price == 0) delete filter.price;
 
         return filter;
     }
@@ -114,10 +125,26 @@ function StoreHeading({ filters, limitHandle }) {
         else if (filter.code == 'size') f.size = 0
         else if (filter.code == 'color') f.color = 0
         else if (filter.code == 'name') f.name = 0
+        else if (filter.code == 'price') f.price = 0
 
 
         filters(clearFilterNotUsed(f))
     }
+
+    const removeAllFilters = () => {
+        attribute = []
+        f.pattern_filter = 0
+        f.style = 0
+        f.room = 0
+        f.rugtype = 0
+        f.size = 0
+        f.color = 0
+        f.name = 0
+        f.price = 0
+        filters(clearFilterNotUsed(f))
+    }
+
+
     const [showZippingInput, setShowZippingInput] = useState(false)
     const [submenu, setsubmenu] = useState({ open: false, menuId: 0 })
     return (
@@ -210,16 +237,17 @@ function StoreHeading({ filters, limitHandle }) {
                                                 leaveTo="transform opacity-0 scale-95"
 
                                                 // className='z-40 absolute bg-white rounded-xl grid grid-cols-2 w-80 '
-                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112  ' :attr.code == 'rugtype'?'lg:grid-cols-5 grid-cols-6  w-160 -left-72': 'grid-cols-2  w-80 '} `}
+                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112  ' : attr.code == 'rugtype' ? 'lg:grid-cols-5 grid-cols-6  w-160 -left-72' : 'grid-cols-2  w-80 '} `}
                                             >
                                                 <Menu.Items className="absolute  right-0 mt-2  origin-top-right divide-y
-                                   divide-gray-100 rounded-md bg-white shadow-lg ring-1
-                                    ring-black ring-opacity-5 focus:outline-none">
+                                                    divide-gray-100 rounded-md bg-white shadow-lg ring-1
+                                                     ring-black ring-opacity-5 focus:outline-none">
                                                     {
-                                                        attr.code != 50 ? attr.options.map((op, inde) => 
+
+                                                        attr.code != 'price' ? attr.options.map((op, inde) =>
 
                                                             <div className="px-1 w-36 py-1 rounded-lg md:hover:mx-1 md:border-2 md:border-white md:hover:border-gray-800
-                                              transform duration-300 " onClick={(e) => {
+                                                               transform duration-300 " onClick={(e) => {
                                                                     handleFlter(attr.code, op.id, op.label)
                                                                     sethover({ hover: false, id: 0 })
                                                                 }}>
@@ -227,12 +255,12 @@ function StoreHeading({ filters, limitHandle }) {
                                                                     {({ active }) => (
                                                                         <button
                                                                             className='bg-violet-500 text-whitetext-gray-900
-                                                                   group flex w-full items-center rounded-md px-2 py-2 text-sm flex-wrap'
+                                                                                    group flex w-full items-center rounded-md px-2 py-2 text-sm flex-wrap'
                                                                         >
-                                                                            
-                                                                            {attr.code =='style'?'':attr.code == 'rugtype'?'': op.swatch_value != null ? <img className='w-12 h-11 m-2' loading='lazy' src={`${process.env.imgPath}/${op.swatch_value}`} /> : ''}
+
+                                                                            {attr.code == 'style' ? '' : attr.code == 'rugtype' ? '' : op.swatch_value != null ? <img className='w-12 h-11 m-2' loading='lazy' src={`${process.env.imgPath}/${op.swatch_value}`} /> : ''}
                                                                             {/* <p className={attr.code == 'rugtype' ?'w-5 h-8 m-4 flex flex-nowrap':''} >  {op.label}</p> */}
-                                                                            <p className={attr.code == 'rugtype' ?'w-5 h-4 m-4 flex flex-nowrap':''} >  {op.label}</p>
+                                                                            <p className={attr.code == 'rugtype' ? 'w-5 h-4 m-4 flex flex-nowrap' : ''} >  {op.label}</p>
 
                                                                         </button>
                                                                     )}
@@ -240,19 +268,35 @@ function StoreHeading({ filters, limitHandle }) {
                                                             </div>
 
                                                         )
-                                                            : <div className="px-1 w-36 py-1 rounded-lg " onClick={(e) => {
-                                                                handleFlter(attr.code, op.id, op.label)
-                                                                sethover({ hover: false, id: 0 })
-                                                            }}>
+                                                            : <div className="px-1 w-60 py-1 rounded-lg " >
                                                                 <Menu.Item>
                                                                     {({ active }) => (
-                                                                        <button
-                                                                            className='bg-violet-500 text-whitetext-gray-900
-                                                               group flex w-full items-center rounded-md px-2 py-2 text-sm'
-                                                                        >
-                                                                            <p>ivhdsihvu</p>
+                                                                        <>
+                                                                            <button
+                                                                                className='bg-violet-500 text-whitetext-gray-900
+                                                                                group flex flex-col justify-center w-full h-52 items-center rounded-md px-2 py-2 text-sm'
+                                                                            >
+                                                                                <p className='font-bold text-lg -mb-14'>Select Price Range</p>
 
-                                                                        </button>
+                                                                                <RangeSlider minPrice={(min) => setminPrice(min)}
+                                                                                    maxPrice={(max) => setmaxPrice(max)} />
+
+
+                                                                            </button>
+
+                                                                            <div className='flex flex-row justify-center'>
+                                                                                {/* <button className=' text-lg -mt-20 border bg-gray-100 rounded-xl h-10 p-2 border-indigo-400 ' onClick={(e) => { */}
+                                                                                <button className=' text-md -mt-20  bg-indigo-400 rounded-xl h-10 p-2 text-white ' onClick={(e) => {
+                                                                                    handleFlter(attr.code, `${minPrice},${maxPrice}`, `$${minPrice} - $${maxPrice}`)
+                                                                                    sethover({ hover: false, id: 0 })
+                                                                                }}>
+                                                                                    Submit
+                                                                                </button>
+                                                                            </div>
+                                                                        </>
+
+
+
                                                                     )}
                                                                 </Menu.Item>
                                                             </div>
@@ -260,6 +304,8 @@ function StoreHeading({ filters, limitHandle }) {
                                                     }
 
                                                 </Menu.Items>
+
+
                                             </Transition>
 
                                         </Menu>
@@ -389,18 +435,30 @@ function StoreHeading({ filters, limitHandle }) {
 
                 }
 
-                <div className='mt-6 flex flex-row'>
-                    {
-                        attribute.map((filter, index) => <div className='border-2 border-gray-600 rounded-lg p-2 mx-2 flex flex-row'>
+                <div className='mt-6 flex flex-row justify-between'>
+                    <div className='flex flex-row '>
+                        {
+                            attribute.map((filter, index) => <div className='border-2 border-gray-600 rounded-lg p-2 mx-2 flex flex-row'>
+                                { }
+                                {filter.code == 'rugtype' ? 'type' + '=' + filter.label : filter.code + '=' + filter.label}
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                                    onClick={(e) => removAttr(index, filter)}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>)
+                        }
+                    </div>
+                    <div>
+                        {
+                            attribute.length > 0 ?
+                                <span className='underline text-indigo-400 cursor-pointer' onClick={(e) => removeAllFilters()}>
+                                    Clear All Filters
+                                </span>
+                                : ''
+                        }
+                    </div>
 
-                            {filter.code == 'rugtype' ? 'type' + '=' + filter.label : filter.code + '=' + filter.label}
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 cursor-pointer"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                                onClick={(e) => removAttr(index, filter)}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </div>)
-                    }
                 </div>
             </div>
         </div>
