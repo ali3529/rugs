@@ -42,7 +42,7 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
   }, [minVal, maxVal, onChange]);
 
   return (
-    <div className="container">
+    <div className="slider-container">
     {/* // <div className="flex items-center justify-center"> */}
       <input
         type="range"
