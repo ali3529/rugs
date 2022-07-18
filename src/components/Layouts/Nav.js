@@ -150,7 +150,7 @@ function Nav() {
             sections: [],
         },
         {
-            id: 'pattern',
+            id: 'pattern_filter',
             name: 'Pattern',
             href: '#',
             sections: [
@@ -189,14 +189,14 @@ function Nav() {
             setStatus,
             setLoading,
             setAttribute: setStyleAttribute,
-            id: 48,
+            id: 51,
         })
         getAttributeById({
             setErrors,
             setStatus,
             setLoading,
             setAttribute: setPatternAttribute,
-            id: 38,
+            id: 52,
         })
         // getAttributeById({
         //     setErrors,
@@ -258,7 +258,7 @@ function Nav() {
         }
         if (patternAttribute?.data?.options) {
             setNavigation(
-                getNavigation('pattern', patternAttribute.data.options),
+                getNavigation('pattern_filter', patternAttribute.data.options),
             )
         }
         // if (persianAttrebute?.data?.options) {
@@ -285,6 +285,7 @@ function Nav() {
                         isLine: false,
                         image: element.swatch_value,
                     })
+                    console.log("dsvsdvsdv",`/rugs?${tag}=${element.id}&lable=${element.label}`);
                 }
 
                 item.sections = [
@@ -918,6 +919,7 @@ function Nav() {
                                                                                                                         item.href,
                                                                                                                     )
                                                                                                                     close()
+                                                                                                                   hoverCategory(false, category.name)
                                                                                                                 }}>
                                                                                                                 <div className="group hover:cursor-pointer hover:text-hovercolor-500 w-36 ">
                                                                                                                     {item.image && (
@@ -934,7 +936,7 @@ function Nav() {
                                                                                                                         }
                                                                                                                         </p>
                                                                                                                     </span>
-                                                                                                                </div>
+                                                                                                                </div >
                                                                                                             </a>
                                                                                                         )}
                                                                                                         {item.isLine && (
