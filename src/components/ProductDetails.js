@@ -209,7 +209,9 @@ function ProductDetails({ productData }) {
                             <ProductForm
                                 productInformation={productInformation}
                                 product={product}
-                                description={productData.description}
+                                description={productData.short_description}
+                                // description={productData.description}
+
                             />
                         </div>
 

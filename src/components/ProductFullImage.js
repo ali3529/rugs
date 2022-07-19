@@ -77,7 +77,7 @@ function ProductFullImage({ images, closeModal, alt }) {
                             <div className=" fixed   bottom-4 sm:bottom-32 left-0 right-0  flex justify-center ">
                                 {/* <div className=" fixed   bottom-4 sm:bottom-32 left-0 right-0  flex  "> */}
                                 <div className='flex flex-col transition-all delay-200 ease-in-out'>
-                                    <div className='flex justify-end'>
+                                    <div className='flex justify-end mx-24'>
                                         <button onClick={(e) => sethideSliderBar(!hideSliderBar)} >
 
                                             {
