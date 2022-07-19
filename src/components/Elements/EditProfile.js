@@ -125,7 +125,8 @@ function EditProfile({ profile, closeModal, refreshProf }) {
                                             className="leading-7 text-sm text-gray-400">
                                             Gender
                                         </label>
-                                        <select required className='w-32 rounded-lg mt-3' value={gender} onChange={(e) => setgender(e.target.value)} >
+                                        <select defaultValue={profile.gender} required className='w-32 rounded-lg mt-3' value={gender} onChange={(e) => setgender(e.target.value)} >
+                                            <option className='text-black' value={'Select'} ></option>
                                             <option value={'Male'}>Male</option>
                                             <option value={'Female'}>Female</option>
                                             <option value={'other'}>other</option>

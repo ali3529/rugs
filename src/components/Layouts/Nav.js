@@ -254,6 +254,7 @@ function Nav() {
             )
         }
         if (styleAttribute?.data?.options) {
+            styleAttribute.data.options=styleAttribute.data.options.filter((i,index)=>index!=6);
             setNavigation(getNavigation('style', styleAttribute.data.options))
         }
         if (patternAttribute?.data?.options) {
@@ -904,7 +905,7 @@ function Nav() {
                                                                                         <div
                                                                                             role="list"
                                                                                             aria-labelledby={`${section.id}-heading`}
-                                                                                            className={`py-4 gap-8 ${category.id == 'color' ? 'grid grid-cols-5' : category.id == 'style' ? 'grid grid-cols-4' : 'columns-3 flex flex-wra'} p   border-t`}>
+                                                                                            className={`py-4 gap-8 ${category.id == 'color' ? 'grid grid-cols-5' : category.id == 'style' ? 'grid grid-cols-3' : 'columns-3 flex flex-wra'} p   border-t`}>
                                                                                             {section.items.map(
                                                                                                 item => (
                                                                                                     <div

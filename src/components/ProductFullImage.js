@@ -1,12 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react'
 import HorizantalSlider from './Elements/HorizantalSlider'
-
+import MainSlider from './Layouts/MainSlider'
+let pos = 0
 function ProductFullImage({ images, closeModal, alt }) {
     const ref = useRef()
     const [mainImg, setMainImg] = useState(null)
     const [nessxt] = useState(null)
-    let pos = 0
+    const [hideSliderBar, sethideSliderBar] = useState(false)
 
+    console.log("vksdbvjhbsdv", images);
+    console.log("vksdbvjhbsdv", pos);
     useEffect(() => {
 
     }, [pos])
@@ -18,13 +21,17 @@ function ProductFullImage({ images, closeModal, alt }) {
     }, [images])
 
     const next = () => {
+        if (pos > images.length - 2) return;
         pos++
+
         setMainImg(images[pos])
 
     }
 
     const prev = () => {
-        pos - 1
+        if (pos <= 0) return;
+        pos--
+
         setMainImg(images[pos])
     }
 
@@ -66,32 +73,44 @@ function ProductFullImage({ images, closeModal, alt }) {
                                     <img src={ArrowRight} onClick={next} />
                                 </div>
                             </div>
-                           
+
                             <div className=" fixed   bottom-4 sm:bottom-32 left-0 right-0  flex justify-center ">
-                            {/* <div className=" fixed   bottom-4 sm:bottom-32 left-0 right-0  flex  "> */}
-                            <HorizantalSlider>
-                                <div
-                                    ref={ref}
-                                    style={{ scrollBehavior: 'smooth' }}
-                                    className="space-x-1 space-y-2 text-center w-full flex flex-row ">
-                                    {/* className="space-x-1 space-y-2 text-center w-full "> */}
-                                    {images &&
-                                        images.map((imgItem, index) => (
-                                            <button
-                                                key={index}
-                                                className="relative flex-shrink-0 rounded-lg bg-transparent bg-teal-1 p-3 "
-                                                onClick={() => setMainImg(imgItem)}>
-                                                <img
-                                                    src={imgItem.url}
-                                                    alt={imgItem.alt}
-                                                    className=" w-16 h-16 "
-                                                />
-                                            </button>
-                                        ))}
+                                {/* <div className=" fixed   bottom-4 sm:bottom-32 left-0 right-0  flex  "> */}
+                                <div className='flex flex-col transition-all delay-200 ease-in-out'>
+                                    <div className='flex justify-end'>
+                                        <button onClick={(e) => sethideSliderBar(!hideSliderBar)} >
+
+                                            {
+                                                hideSliderBar ? 'Show' : 'Hide'
+                                            }
+                                        </button>
+                                    </div>
+                                    <div className={`${hideSliderBar ? 'invisible' : 'block'}`}>
+                                        <HorizantalSlider >
+                                            <div
+                                                ref={ref}
+                                                style={{ scrollBehavior: 'smooth' }}
+                                                className="space-x-1 space-y-2 text-center w-full flex flex-row ">
+                                                {/* className="space-x-1 space-y-2 text-center w-full "> */}
+                                                {images &&
+                                                    images.map((imgItem, index) => (
+                                                        <button
+                                                            key={index}
+                                                            className="relative flex-shrink-0 rounded-lg bg-transparent bg-teal-1 p-3 "
+                                                            onClick={() => setMainImg(imgItem)}>
+                                                            <img
+                                                                src={imgItem.url}
+                                                                alt={imgItem.alt}
+                                                                className=" w-16 h-16 "
+                                                            />
+                                                        </button>
+                                                    ))}
+                                            </div>
+                                        </HorizantalSlider>
+                                    </div>
                                 </div>
-                                </HorizantalSlider>
                             </div>
-                          
+
                         </div>
                     </div>
                 </div>

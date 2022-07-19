@@ -194,11 +194,11 @@ function ProductInfo({
                     </FacebookShareButton>
                 </div>
 
-                <div >
+                {/* <div >
                     <PinterestShareButton url={getSHareUrl()}>
                         <PinterestIcon size={32} round />
                     </PinterestShareButton>
-                </div>
+                </div> */}
 
                 <div >
                     <TwitterShareButton url={getSHareUrl()} >
