@@ -150,7 +150,7 @@ function ChooseAddress({ crddd }) {
                             {
                                 <div className='cursor-pointer'>
                                     <input
-                                        className=" rounded-full h-4 w-4 border border-gray-800 rin bg-white checked:bg-blue-600 
+                                        className=" rounded-full h-4 w-4 border border-gray-800  bg-white checked:bg-blue-600 
                                                     checked:border-blue-600  ring-indigo-400"
                                         type="radio"
                                         value={address.id}
