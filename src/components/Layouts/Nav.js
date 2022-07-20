@@ -150,8 +150,8 @@ function Nav() {
             sections: [],
         },
         {
-            id: 'pattern_filter',
-            name: 'Pattern',
+            id: 'collections',
+            name: 'collections',
             href: '#',
             sections: [
                 {
@@ -259,7 +259,7 @@ function Nav() {
         }
         if (patternAttribute?.data?.options) {
             setNavigation(
-                getNavigation('pattern_filter', patternAttribute.data.options),
+                getNavigation('collections', patternAttribute.data.options),
             )
         }
         // if (persianAttrebute?.data?.options) {

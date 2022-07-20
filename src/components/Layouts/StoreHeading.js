@@ -12,7 +12,7 @@ import RangeSlider from '../Elements/RangeSlider'
 
 let attribute = []
 const f = {
-    pattern_filter: 0,
+    collections: 0,
     style: 0,
     room: 0,
     rugtype: 0,
@@ -39,7 +39,7 @@ function StoreHeading({ filters, limitHandle }) {
             let a = [];
             res.data.data.map(attr => {
 
-                if (attr.id == 50 || attr.id == 51 || attr.id == 52 || attr.id == 53 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
+                if (attr.id == 50 || attr.id == 51 || attr.id == 54 || attr.id == 53 || attr.id == 11 || attr.id == 24 || attr.id == 23) {
                     console.log("[dsjvdsklv]", attr);
                     a.push(attr)
                 }
@@ -54,7 +54,7 @@ function StoreHeading({ filters, limitHandle }) {
     useEffect(() => {
 
         if (router.isReady) {
-            router.query.pattern_filter != undefined ? handleFlter('pattern_filter', router.query.pattern_filter, router.query.lable) :
+            router.query.collections != undefined ? handleFlter('collections', router.query.collections, router.query.lable) :
                 router.query.room != undefined ? handleFlter('room', router.query.room, router.query.lable) :
                     router.query.rugtype != undefined ? handleFlter('rugtype', router.query.rugtype, router.query.lable) :
                         router.query.size != undefined ? handleFlter('size', router.query.size, router.query.lable) :
@@ -82,7 +82,7 @@ function StoreHeading({ filters, limitHandle }) {
         if (code != '')
             attribute.push({ filter: fil, code: code, id: id, label: label });
 
-        if (code == 'pattern_filter') f.pattern_filter = id
+        if (code == 'collections') f.collections = id
         else if (code == 'style') f.style = id
         else if (code == 'room') f.room = id
         else if (code == 'rugtype') f.rugtype = id
@@ -97,7 +97,7 @@ function StoreHeading({ filters, limitHandle }) {
     }
 
     const clearFilterNotUsed = (filter) => {
-        if (filter.pattern_filter == 0) delete filter.pattern_filter;
+        if (filter.collections == 0) delete filter.collections;
         if (filter.style == 0) delete filter.style;
         if (filter.room == 0) delete filter.room;
         if (filter.rugtype == 0) delete filter.rugtype;
@@ -118,7 +118,7 @@ function StoreHeading({ filters, limitHandle }) {
         },
             undefined, { shallow: true }
         )
-        if (filter.code == 'pattern_filter') f.pattern_filter = 0
+        if (filter.code == 'collections') f.collections = 0
         else if (filter.code == 'style') f.style = 0
         else if (filter.code == 'room') f.room = 0
         else if (filter.code == 'rugtype') f.rugtype = 0
@@ -133,7 +133,7 @@ function StoreHeading({ filters, limitHandle }) {
 
     const removeAllFilters = () => {
         attribute = []
-        f.pattern_filter = 0
+        f.collections = 0
         f.style = 0
         f.room = 0
         f.rugtype = 0
@@ -237,7 +237,7 @@ function StoreHeading({ filters, limitHandle }) {
                                                 leaveTo="transform opacity-0 scale-95"
 
                                                 // className='z-40 absolute bg-white rounded-xl grid grid-cols-2 w-80 '
-                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112  ' : attr.code == 'rugtype' ? 'lg:grid-cols-5 grid-cols-6  w-160 -left-72' : 'grid-cols-2  w-80 '} `}
+                                                className={`z-40 absolute bg-white rounded-xl grid ${attr.code == 'color' ? 'grid-cols-3  w-112  ' : attr.code == 'rugtype' ? 'lg:grid-cols-5 grid-cols-6  w-160 -left-72' :attr.code == 'collections' ?'grid-cols-2  w-112 ': 'grid-cols-2  w-80 '} `}
                                             >
                                                 <Menu.Items className="absolute  right-0 mt-2  origin-top-right divide-y
                                                     divide-gray-100 rounded-md bg-white shadow-lg ring-1

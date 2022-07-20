@@ -9,7 +9,7 @@ function RangeSlider({ minPrice, maxPrice }) {
         <>
             <MultiRangeSlider
                 min={0}
-                max={1000}
+                max={15000}
                 onChange={({ min, max }) => {
                     minPrice(min)
                     maxPrice(max)

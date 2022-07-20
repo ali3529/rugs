@@ -25,9 +25,10 @@ function MainSlider() {
         if (mainSlides && mainSlides.length > 3) {
             setFirstSlides(mainSlides[0])
             setSecondSlides(mainSlides[1])
+            console.log("fdbfdbfdbfdb",mainSlides);
             delete setSliders[0]
             delete setSliders[1]
-            console.log("",mainSlides);
+            
             // mainSlides.id=="5"?'':mainSlides.id=="6"?'':
             // indexx !== index
             setSliders(mainSlides.filter((item,index)=>index!=0 &&index!=1 ))
