@@ -63,28 +63,28 @@ function IndexPage() {
                         />
                     </div>
                     <div className="lg:my-40 md:my-20 my-10">
-                        <h2 className="text-2xl">We’re so much more than rugs.</h2>
+                        {/* <h2 className="text-2xl">We’re so much more than rugs.</h2> */}
 
                         <p className="my-3">
 
                             If you are looking for a place to find rugs for sale, and that offer high-quality decor rugs for you and your family to enjoy, you do not need to seek no more "area rugs near me" on Google Maps, because the answer you will find is purchasing the rug online. No more local rug stores: Magic Rug is the perfect ally for your home decor and interior decor plans.
                         </p>
-                        <h2 className='text-2xl'>
+                        {/* <h2 className='text-2xl'>
                             Unique vintage finds.
-                        </h2>
+                        </h2> */}
                         <p className="my-3">
                             Magic Rugs is definitely the best site to find the perfect rug to fit your needs. We have curated a comprehensive collection of the most beautiful rugs of all kinds, shapes, sizes, patterns, and styles, so you can find the rug that will best fit your home. And the best part of all is that we have made them affordable: you will find discount rugs as they must fit not only your aesthetic expectations but also your pocket.
                             From the most unique Oriental rugs, such as the Turkomen Persian rugs, to the favorites among interior designers and homeowners, all those modern, bold, and colorful rugs. We offer several deals on both vintage, rather antique rugs, and contemporary new rugs.
                         </p>
-                        <h2 className='text-2xl'>
+                        {/* <h2 className='text-2xl'>
                             We believe value matters.
-                        </h2>
+                        </h2> */}
                         <p className="my-3">
                             In our very comprehensive catalog, you will find floor rugs for every purpose around the house: You will find office rugs to embellish your workspace and make it more welcoming for new clients; hallway rugs to work as a connection between the public and the private, and for your to feel as if you had a red carpet in your home.
                         </p>
-                        <h2 className='text-2xl'>
+                        {/* <h2 className='text-2xl'>
                             We ensure 100% customer satisfaction.
-                        </h2>
+                        </h2> */}
                         <p className="my-3">
                             Kitchen rugs to render your culinary spaces and your kitchen floors as tidy as they can be; bedroom rugs to never have to feel the cold floor when you wake up ever again; living room rugs, to be the envy of all your friends and family, and many, many more.
                             Regarding colors and patterns, you can find all shades and colors you can imagine: dark rugs, in daring colors to be the centerpiece of your room, as well as rather neutral rugs, to perfectly blend into the surroundings and still provide the coziness only a rug can.

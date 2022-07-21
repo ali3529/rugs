@@ -13,7 +13,7 @@ function gedite() {
     const [seotitle, setseotitle] = useState('')
     const [seoDiscrip, setseoDiscrip] = useState('')
     const [keyword, setkeyword] = useState('')
-    const [date, setDate] = useState(Date.now())
+   
     const [loading, setloading] = useState(false)
     const [status, setstatus] = useState('')
 
@@ -50,9 +50,9 @@ function gedite() {
         // formdata.append("file", imgurl)
      
         // formdata.append('data', JSON.stringify({ title, discription, seotitle, seoDiscrip, keyword, date }))
-        console.log("sdvsdvdsvsdv",{ title, discription:log(), seotitle, seoDiscrip, keyword, date });
+        console.log("sdvsdvdsvsdv",{ title, discription:log(), seotitle, seoDiscrip, keyword,  });
         setloading(true)
-        axios.put('/api/blogapi/' + id, { title, discription:log(), seotitle, seoDiscrip, keyword, date })
+        axios.put('/api/blogapi/' + id, { title, discription:log(), seotitle, seoDiscrip, keyword })
             .then(res => router.push('/blog/manage')).catch(err => setloading(false));
 
     }
@@ -137,6 +137,7 @@ function gedite() {
                                             Content
                                         </label>
                                         <Editor
+                                        apiKey='wxrezd7357dzig7e18hec61ursvch4v7s5irsitg7fq563id'
                                             onInit={(evt, editor) => editorRef.current = editor}
                                             init={{
                                                 height: 500,

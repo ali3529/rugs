@@ -152,6 +152,7 @@ setuploadStatus('')
                                             Content
                                         </label>
                                         <Editor
+                                         apiKey='wxrezd7357dzig7e18hec61ursvch4v7s5irsitg7fq563id'
                                             onInit={(evt, editor) => editorRef.current = editor}
                                             init={{
                                                 height: 500,

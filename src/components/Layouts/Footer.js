@@ -52,7 +52,12 @@ function Footer() {
             items: [
                 {
                     id: '1',
-                    label: 'Faq',
+                    label: 'Frequently Asked Questions',
+                    link: '/page/faq',
+                },
+                 {
+                    id: '8',
+                    label: 'Track My Order',
                     link: '/page/faq',
                 },
                 // {
@@ -63,12 +68,16 @@ function Footer() {
                 // },
                 {
                     id: '3',
-                    label: 'Shipping Policy',
+                    label: 'Shipping',
                     link: '/page/shipping-policy',
+                }, {
+                    id: '9',
+                    label: 'Returns & Exchanges',
+                    link: '/page/returns-exchanges',
                 },
                 {
                     id: '4',
-                    label: 'About Vintage Rugs',
+                    label: 'Learn About Vintage Rugs',
                     link: '/page/about-vintage-rugs',
                 },
                 {
@@ -78,11 +87,7 @@ function Footer() {
                     link: '/customer-service',
                     //  link: '/f/customer-service',
                 },
-                {
-                    id: '6',
-                    label: 'Customer Login',
-                    link: '/login',
-                },
+           
 
             ],
         },
@@ -98,15 +103,15 @@ function Footer() {
             link: '',
             items: [
                 {
-                    id: '1',
-                    label: '  Rewards & Programs',
-                    link: '/page/rewards',
-                },
-                {
                     id: '2',
                     label: 'Sign Up For An Account',
                     link: '/register',
                     // link: '/rugs?attqribute=style%3DTribal+Rugsl',
+                },
+                {
+                    id: '1',
+                    label: 'Rewards Program',
+                    link: '/page/rewards',
                 },
                 {
                     id: '3',
@@ -138,22 +143,22 @@ function Footer() {
                 {
                     id: '1',
                     label: 'Persian Rugs',
-                    link: '/rugs?typeproduct=16&lable=Persian Rugs',
+                    link: '/rugs?collections=116&lable=Persian Rugs',
                 },
                 {
                     id: '2',
                     label: 'Oriental Rugs',
-                    link: '/rugs?typeproduct=16&lable=Oriental Rugs',
+                    link: '/rugs?collections=108&lable=Oriental Rugs',
                 },
                 {
                     id: '3',
                     label: 'Shop Size',
-                    link: '/rugs?size=6&lable=size s',
+                    link: '/rugs?size=6&lable=size',
                 },
                 {
                     id: '4',
                     label: 'Shop Style',
-                    link: '/rugs?style=16&lable=style',
+                    link: '/rugs?style=76&lable=style',
                 },  {
                     id: '5',
                     label: 'Clearance',
@@ -169,7 +174,7 @@ function Footer() {
             items: [
                 {
                     id: '1',
-                    label: 'About Us',
+                    label: 'About',
                     link: '/customer-service',
                 },
                 {
@@ -179,10 +184,14 @@ function Footer() {
                 },
                 {
                     id: '3',
-                    label: 'Blog',
+                    label: 'Magic Rugs Blog',
                     link: '/blogs',
                 },
                 {
+                    id: '4',
+                    label: 'Visit Our Showroom',
+                    link: '/page/visit-our showroom',
+                }, {
                     id: '4',
                     label: 'Privacy Policy',
                     link: '/page/privacy-policy',
