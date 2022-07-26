@@ -57,7 +57,7 @@ function ShopByStyle() {
                                         <div className="flex flex-col justify-center items-center">
                                             <img
                                                 loading='lazy'
-                                                className="w-full p-12 rounded-lg"
+                                                className="w-full lg:p-12 rounded-lg"
                                                 src={`${process.env.imgPath}/${item.swatch_value}`}
                                                 // src={`http://141.11.182.239:9000/local/product/74/VkTXQdcb2Z5ypDiQ7xxRfc4oj4n2SPEhCmDVD5RV.webp`}
                                                 alt={item.label}

@@ -42,12 +42,13 @@ function IndexPage() {
                     {/* <ShopArrivais/> */}
                     <Recommended />
                     <img
-                        className="w-full my-28 rounded-md"
+                        className="w-full lg:h-auto h-72  object-cover lg:object-contain my-28 rounded-md"
                         src="/images/inner_banner.webp"
                         alt="affirm-block"
                     />
                     <LastBlog />
-                    <div className="flex lg:flex-row flex-col justify-between items-center px-6 py-8 bg-[#F5F5F5] rounded-lg shadow">
+                    <div className="flex lg:flex-row flex-col justify-between items-center px-6 py-8 bg-[#F5F5F5] 
+                    rounded-lg shadow">
                         {/* <div className=" flex flex-col lg:mx-2 my-4 lg:items-start items-center">
                             <b className="text-lg">Planting for the planet</b>
                             <span className="text-xs lg:text-left text-center text-gray-700">

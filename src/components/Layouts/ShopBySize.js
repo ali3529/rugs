@@ -76,7 +76,7 @@ function ShopBySize() {
                 Choose the perfect rug and make sure it fits your living spaces.
                 </p>
             </div>
-            <ul className="grid md:grid-cols-7 sm:grid-cols-3 grid-cols-2 w-full">
+            <ul className="grid md:grid-cols-8 sm:grid-cols-3 grid-cols-2 w-full">
                 {sitesttrebute ?
                     sitesttrebute.data.options.map(item => (
                         <li
