@@ -36,7 +36,10 @@ function faq() {
                     fname == "rewards" ? 14 :
                         fname == "trade-program" ? 15 :
                             fname == "buyers-retailers-program" ? 16 : 
-                            fname == "cutomer-service" ? 7 : ''  
+                            fname == "cutomer-service" ? 7 :   
+                            fname == "rug-guide" ? 18 :  
+                            fname == "custom-size" ? 19 :   
+                            fname == "about-us" ? 1 : ''  
                             
                             
         //                     const setQ = () => fname == "faq" ? '62c971778b7536772a213c51' : fname == "privacy-policy" ? '62c972458b7536772a213c6d' :

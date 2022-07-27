@@ -85,7 +85,32 @@ function ShopBySize() {
                             className="w-full flex  cursor-pointer px-2 my-3 md:hover:shadow-xl md:hover:mx-1 md:border-2 md:border-white rounded-xl md:hover:border-gray-800
                                 transform duration-300">
                             {/* <Link href={`/rugs?color=${item.code}`}> */}
-                            <Link href={{
+                            {console.log("dsknvsdnv",item)}
+                         {
+                             
+                             item.id==137 || item.id==133?<Link href={`/page/${item.id==137?'rug-guide':'custom-size'}`}>
+
+                            {/* <a href={{
+                                pathname: '/rugs',
+                                query: { q: 'color=' + item.code }
+                            }, null}> */}
+                                <div className="flex  flex-col justify-center items-center ">
+                                    <img
+                                    loading='lazy'
+                                        className="w-full "
+                                        src={`${process.env.imgPath}/${item.swatch_value}`}
+                                        alt={item.label}
+                                    />
+                                    <div className="flex flex-col justify-center items-center">
+                                        <header className="font-bold text-lg my-2">
+                                            {item.label}
+                                        </header>
+                                    </div>
+                                </div>
+                            {/* </a> */}
+                            </Link>
+                             
+                             :   <Link href={{
                                 pathname: '/rugs',
                                 // query: { q: 'size=' + item.id }
                                 query:   {size : item.id ,lable:item.label}
@@ -110,6 +135,7 @@ function ShopBySize() {
                                 </div>
                             {/* </a> */}
                             </Link>
+                         }
                         </li>
                     ))
                     : null

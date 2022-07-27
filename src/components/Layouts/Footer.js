@@ -152,13 +152,13 @@ function Footer() {
                 },
                 {
                     id: '3',
-                    label: 'Shop Size',
-                    link: '/rugs?size=6&lable=size',
+                    label: 'Custom Size',
+                    link: '/page/custom-size',
                 },
                 {
                     id: '4',
-                    label: 'Shop Style',
-                    link: '/rugs?style=76&lable=style',
+                    label: 'Help Rug Size Guide',
+                    link: '/page/rug-guide',
                 },  {
                     id: '5',
                     label: 'Clearance',
@@ -175,7 +175,7 @@ function Footer() {
                 {
                     id: '1',
                     label: 'About',
-                    link: '/customer-service',
+                    link: '/page/about-us',
                 },
                 {
                     id: '2',
